@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myjenweb
+spec:
+  type: NodePort
+  selector:
+    apps: myjenweb
+  ports:
+  - nodePort: 30000
+    port: 80
+    protocol: TCP
+    targetPort: 80

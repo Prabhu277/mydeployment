@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myjen
+spec:
+  replicas: 3  # Number of replicas/instances you want to run
+  selector:
+    matchLabels:
+      app: myjenweb
+  template:
+    metadata:
+      labels:
+        app: myjenweb
+    spec:
+      containers:
+      - name: myjenweb-container
+        image: prabhu27/jenkinsweb:latest  # Specify your Docker image and tag here
+        ports:
+        - containerPort: 80
+
