@@ -1,13 +1,10 @@
 ---
 - name: kubeCodeDeploy
   hosts: kubeserver
-  gather_facts: no 
-  tasks:
-    - name: Disable SSH strict host key checking
-      ansible.cfg:
-        lines:
-          - "host_key_checking = False"
-  
-    - name: Run a command on the target server
-      shell: echo "df -h"
+  gather_facts: no
+  vars:
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
 
+  tasks:
+    - name: Run a command on the target server
+      command: df -h
