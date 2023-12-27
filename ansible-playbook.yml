@@ -1,0 +1,7 @@
+---
+- name: kubeCodeDeploy
+  hosts: kubeserver
+  tasks:
+    - name: Run a command on the target server
+      shell: echo "df -h"
+
