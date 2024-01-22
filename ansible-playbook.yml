@@ -11,7 +11,7 @@
     - name: Change to the specified directory and run commands
       shell: |
         cd /home/ec2-user/mydeployment
-        echo "Hello"
+        echo "Hello" > k.txt
       args:
         executable: /bin/bash
 
