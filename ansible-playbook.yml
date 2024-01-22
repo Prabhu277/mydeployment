@@ -5,7 +5,7 @@
   tasks:
     - name: Change to the specified directory and run commands
       shell: 
-          ./kubectl create -f mynamespace.yaml
+          kubectl create -f mynamespace.yaml
       args:
         executable: /bin/bash
 
