@@ -1,6 +1,6 @@
 ---
 - name: kubeCodeDeploy
-  hosts: localhosts
+  hosts: kube
   became: yes
   tasks:
     - name: Run a command on the target server
