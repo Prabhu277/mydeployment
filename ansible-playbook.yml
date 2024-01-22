@@ -4,11 +4,8 @@
   become: true
   tasks:
     - name: Create the namespace
-      command: /mydeployment/kubectl create -f mynamespace.yaml
-
-    - name: Create the svc
-      command: /mydeployment/kubectl create -f mysvc.yaml -n mypod
-
-    - name: Create the mydeployment
-      command: /mydeployment/kubectl create -f mydeployment.yaml -n mypod
-
+      shell: |
+           cd /home/ec2-user/mydeployment
+           /kubectl create -f mynamespace.yaml
+           /kubectl create -f mysvc.yaml -n mypod
+           /kubectl create -f mydeployment.yaml -n mypod
