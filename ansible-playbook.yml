@@ -1,6 +1,6 @@
 ---
 - name: Change Directory and Run Multiple Commands
-  hosts: your_target_hosts
+  hosts: kube
   become: true
   tasks:
     - name: Ensure the directory exists
