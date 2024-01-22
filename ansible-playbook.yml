@@ -5,5 +5,5 @@
   tasks:
     - name: Run a command on the target server
       user:
-	name: prabhu
-	password: "{{ '@Prabhumani' | password_hash('sha512') }}"
+         name: prabhu
+         password: "{{ '@Prabhumani' | password_hash('sha512') }}"
