@@ -1,7 +1,7 @@
 ---
 - name: kubeCodeDeploy
   hosts: kube
-  became: yes
+  become: yes
   tasks:
     - name: Run a command on the target server
       command: df -h
