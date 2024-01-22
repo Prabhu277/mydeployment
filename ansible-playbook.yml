@@ -11,9 +11,7 @@
     - name: Change to the specified directory and run commands
       shell: |
         cd /home/ec2-user/mydeployment
-        ./kubectl create -f mynamespace.yaml
-        ./kubectl create -f mysvc.yaml -n mypod
-        ./kubectl create -f mydeployment.yaml -n mypod
+        echo "Hello"
       args:
         executable: /bin/bash
 
