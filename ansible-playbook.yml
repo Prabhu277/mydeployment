@@ -1,11 +1,19 @@
 ---
-- name: kubeCodeDeploy
-  hosts: kube
+- name: Change Directory and Run Multiple Commands
+  hosts: your_target_hosts
   become: true
   tasks:
-    - name: Create the namespace
+    - name: Ensure the directory exists
+      file:
+        path: /home/ec2-user/mydeployment
+        state: directory
+
+    - name: Change to the specified directory and run commands
       shell: |
-           cd /home/ec2-user/mydeployment
-           /kubectl create -f mynamespace.yaml
-           /kubectl create -f mysvc.yaml -n mypod
-           /kubectl create -f mydeployment.yaml -n mypod
+        cd /home/ec2-user/mydeployment
+        ./kubectl create -f mynamespace.yaml
+        ./kubectl create -f mysvc.yaml -n mypod
+        ./kubectl create -f mydeployment.yaml -n mypod
+      args:
+        executable: /bin/bash
+
