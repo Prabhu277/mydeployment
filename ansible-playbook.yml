@@ -4,11 +4,11 @@
   become: true
   tasks:
     - name: Create the namespace
-      shell: kubectl create -f mynamespace.yaml
+      command: kubectl create -f mynamespace.yaml
 
     - name: Create the svc
-      shell: kubectl create -f mysvc.yaml -n mypod
+      command: kubectl create -f mysvc.yaml -n mypod
 
     - name: Create the mydeployment
-      shell: kubectl create -f mydeployment.yaml -n mypod
+      command: kubectl create -f mydeployment.yaml -n mypod
 
