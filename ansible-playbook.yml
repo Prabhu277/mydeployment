@@ -1,9 +1,14 @@
 ---
 - name: kubeCodeDeploy
   hosts: kube
-  become: yes
+  become: true
   tasks:
-    - name: Run a command on the target server
-      user:
-         name: prabhu
-         password: "{{ '@Prabhumani' | password_hash('sha512') }}"
+    - name: Create the namespace
+      shell: kubectl create -f mynamespace.yaml
+
+    - name: Create the svc
+      shell: kubectl create -f mysvc.yaml -n mypod
+
+    - name: Create the mydeployment
+      shell: kubectl create -f mydeployment.yaml -n mypod
+
