@@ -3,15 +3,8 @@
   hosts: kube
   become: true
   tasks:
-    - name: Ensure the directory exists
-      file:
-        path: /home/ec2-user/mydeployment
-        state: directory
-
     - name: Change to the specified directory and run commands
-      shell: |
-        cd /home/ec2-user/mydeployment
-        echo "Hello" > k.txt
+      shell: kubectl create -f mynamespace.yaml
       args:
         executable: /bin/bash
 
